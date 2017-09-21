@@ -1,0 +1,31 @@
+<h1>
+    Page de login
+</h1>
+<!--
+    (ngSubmit) => Action à effectué lors de l'envoie du form
+    [(ngModel)]="login.email" => Bind l'entrée utilisation dans la variable login de notre component
+    required  => "Champs requis pour la soumission"
+    pattern=  => "Patern pour check le mail"
+    [disabled]="!formulaire.form.valid" => empêche l'envoie du form tant que tout les conditions ne sont pas remplis
+-->
+<form #formulaire="ngForm" (ngSubmit)="onSubmit()">
+    <label  for="email" data-error="wrong" data-success="right">Email</label>
+    <input  type="email"
+            name="email"
+            id="email"
+            [(ngModel)]="login.email"
+            pattern="[a-zA-Z0-9_]+(?:\.[A-Za-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*@(?!([a-zA-Z0-9]*\.[a-zA-Z0-9]*\.[a-zA-Z0-9]*\.))(?:[A-Za-z0-9](?:[a-zA-Z0-9-]*[A-Za-z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?"
+            required
+    />
+    <label for="password" data-error="wrong" data-success="right">password</label>
+    <input type="password"
+           name="passowrd"
+           id="passowrd"
+           [(ngModel)]="login.passowrd"
+           required
+           minlength="8"
+    />
+    <input type="submit"
+           [disabled]="!formulaire.form.valid"
+    />
+</form>
