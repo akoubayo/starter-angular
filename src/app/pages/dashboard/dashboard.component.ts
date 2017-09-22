@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { User }              from './../../services/user/user'
 import { UserService }       from './../../services/user/user.service';
-import { Subject }           from 'rxjs/Subject';
 
 @Component({
   selector: 'app-dashboard',
