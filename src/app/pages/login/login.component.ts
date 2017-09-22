@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit }                         from '@angular/core';
+import { Router, ActivatedRoute, Params }            from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,13 +13,14 @@ export class LoginComponent implements OnInit {
         passowrd:''
     }
 
-    constructor() { }
+    constructor(public router: Router) { }
 
     ngOnInit() {
     }
 
     public onSubmit = () => {
         console.log(this.login)
+        this.router.navigate(['/dashboard']);
     }
 
 }
