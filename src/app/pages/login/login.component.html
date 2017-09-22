@@ -1,31 +1,44 @@
-<h1>
-    Page de login
-</h1>
-<!--
-    (ngSubmit) => Action à effectué lors de l'envoie du form
-    [(ngModel)]="login.email" => Bind l'entrée utilisation dans la variable login de notre component
-    required  => "Champs requis pour la soumission"
-    pattern=  => "Patern pour check le mail"
-    [disabled]="!formulaire.form.valid" => empêche l'envoie du form tant que tout les conditions ne sont pas remplis
--->
-<form #formulaire="ngForm" (ngSubmit)="onSubmit()">
-    <label  for="email" data-error="wrong" data-success="right">Email</label>
-    <input  type="email"
-            name="email"
-            id="email"
-            [(ngModel)]="login.email"
-            pattern="[a-zA-Z0-9_]+(?:\.[A-Za-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*@(?!([a-zA-Z0-9]*\.[a-zA-Z0-9]*\.[a-zA-Z0-9]*\.))(?:[A-Za-z0-9](?:[a-zA-Z0-9-]*[A-Za-z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?"
-            required
-    />
-    <label for="password" data-error="wrong" data-success="right">password</label>
-    <input type="password"
-           name="passowrd"
-           id="passowrd"
-           [(ngModel)]="login.passowrd"
-           required
-           minlength="8"
-    />
-    <input type="submit"
-           [disabled]="!formulaire.form.valid"
-    />
-</form>
+<div class="col s12 white z-depth-3" style="margin-top: 25%; padding:0px 50px 0px 50px">
+    <h5>
+        Page de login
+    </h5>
+    <form materialize class="col s12" #formulaire="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="input-field col s6">
+                <input  type="email"
+                        name="email"
+                        id="email"
+                        [(ngModel)]="login.email"
+                        pattern="[a-zA-Z0-9_]+(?:\.[A-Za-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*@(?!([a-zA-Z0-9]*\.[a-zA-Z0-9]*\.[a-zA-Z0-9]*\.))(?:[A-Za-z0-9](?:[a-zA-Z0-9-]*[A-Za-z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?"
+                        required
+                        class="validate"
+                />
+                <label  for="email" data-error="Entrez une adresse mail valide" data-success="right">Email</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="password"
+                       name="passowrd"
+                       id="passowrd"
+                       [(ngModel)]="login.passowrd"
+                       required
+                       minlength="8"
+                       class="validate"
+                />
+                <label for="password" data-error="Le password doit contenir au minimum 8 caractères" data-success="right">password</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <button class="btn waves-effect waves-light"
+                        type="submit"
+                        name="action"
+                        [disabled]="!formulaire.form.valid"
+                >
+                    Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+

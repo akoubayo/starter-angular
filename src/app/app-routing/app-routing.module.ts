@@ -5,11 +5,16 @@ import { AppModule }                               from '../app.module';
 import { LoginComponent }                          from './../pages/login/login.component';
 import { FormsModule, ReactiveFormsModule }        from '@angular/forms';
 
-
-const appRoutes: Routes = [{
-    path: '',
-    component: LoginComponent
-}]
+const appRoutes: Routes = [
+    {
+      path: '',
+      component: LoginComponent,
+    },
+    {
+      path: 'dashboard',
+      loadChildren: 'app/pages/dashboard/dashboard.module#DashboardModule',
+    },
+]
 
 @NgModule({
   declarations: [
@@ -25,7 +30,7 @@ const appRoutes: Routes = [{
       }
     ),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [
     RouterModule,
