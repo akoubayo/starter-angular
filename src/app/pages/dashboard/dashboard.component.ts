@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { UserService }       from './../../services/user/user.service';
+import { Subject }           from 'rxjs/Subject';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -14,9 +17,27 @@ export class DashboardComponent implements OnInit {
         bullet:        2
     }
 
-    constructor() { }
+    constructor(private userService:UserService) {
+
+    }
 
     ngOnInit() {
+        // console.log("here");
+        // this.userService.getUserObservable().subscribe(res => {
+        //     console.log('dans le res')
+        //     console.log(res)
+        //     this.profil = res;
+        // },
+        // err => {
+        //     console.log('Dans error')
+        //     console.log(err)
+        // })
+        this.profil = this.userService.getUser()
+    }
+
+    public setUser = () => {
+        console.log('here')
+        //this.userService.setUser(this.profil);
     }
 
 }
