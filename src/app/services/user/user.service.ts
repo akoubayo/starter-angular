@@ -7,27 +7,27 @@ import { Subject }             from 'rxjs/Subject';
 export class UserService {
 
   private user:User; // Déclaration d'un user classique.
-  private user_observable:Subject<User> = new Subject<any>(); // Déclaration d'un observable user
 
   constructor() {
-      this.user = new User();
-      this.user_observable.next(this.user);
+        this.user = new User();
   }
 
+  // Renvoie l'adresse de l'objet User
   public getUser = ():User => {
-      console.log('==================')
-      console.log(this.user);
-      console.log('==================')
-      return this.user;
+      return this.user; // C'est la référence vers l'objet user qui est renvoyer
   }
 
-  public getUserObservable = ():Observable<User> => {
-      return this.user_observable.asObservable();
+  // Renvoie une copie de l'objet User
+  public getUserByCopy = ():User => {
+      let user_copy:User = new User();
+      for(let key in this.user) {
+          user_copy[key] = this.user[key];
+      }
+      return user_copy;
   }
 
-  public setUser = (user:User) => {
+  public setUser = (user) => {
       this.user = user;
-      this.user_observable.next(this.user);
   }
 
 }

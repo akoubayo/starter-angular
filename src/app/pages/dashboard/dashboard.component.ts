@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { User }              from './../../services/user/user'
 import { UserService }       from './../../services/user/user.service';
 import { Subject }           from 'rxjs/Subject';
 
@@ -10,34 +11,18 @@ import { Subject }           from 'rxjs/Subject';
 })
 export class DashboardComponent implements OnInit {
 
-    public profil:any = {
-        first_name:   "Damien",
-        last_name:    "Altman",
-        title:        "Dévellopeur chez Tilkee",
-        bullet:        2
-    }
+    public profil:User;
 
-    constructor(private userService:UserService) {
+    constructor(private user_service:UserService) {
 
     }
 
     ngOnInit() {
-        // console.log("here");
-        // this.userService.getUserObservable().subscribe(res => {
-        //     console.log('dans le res')
-        //     console.log(res)
-        //     this.profil = res;
-        // },
-        // err => {
-        //     console.log('Dans error')
-        //     console.log(err)
-        // })
-        this.profil = this.userService.getUser()
+        this.profil = this.user_service.getUser();
     }
 
-    public setUser = () => {
-        console.log('here')
-        //this.userService.setUser(this.profil);
+    public setUser = (_profil:any) => {
+        this.user_service.setUser(_profil);
     }
 
 }

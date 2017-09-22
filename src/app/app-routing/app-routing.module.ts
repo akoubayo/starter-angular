@@ -13,7 +13,7 @@ const appRoutes: Routes = [
     {
       path: 'dashboard',
       loadChildren: 'app/pages/dashboard/dashboard.module#DashboardModule',
-    },
+    }
 ]
 
 @NgModule({
