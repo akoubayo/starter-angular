@@ -1,5 +1,45 @@
 <div class="row">
-    <div class="col s12" style="">
-        <app-card-profil></app-card-profil>
+    <div class="col s3" style="">
+        <app-card-profil [(profil)]=profil></app-card-profil>
+    </div>
+    <div class="col s6 white z-depth-3" style="margin-top: 10px">
+        <h5>Modifier son profil</h5>
+            <div class="row">
+            <div class="input-field col s6">
+                <input  type="text"
+                        name="first_name"
+                        id="first_name"
+                        [(ngModel)]="profil.first_name"
+                        required
+                        minlength="4"
+                        class="validate"
+                />
+                <label  for="first_name" class="active"  data-error="Entrez votre prénom" data-success="right">First name</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="text"
+                       name="last_name"
+                       id="last_name"
+                       [(ngModel)]="profil.last_name"
+                       required
+                       minlength="4"
+                       class="validate"
+                />
+                <label for="last_name" class="active"  data-error="Entrez votre nom" data-success="right">Last name</label>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                <input type="text"
+                       name="title"
+                       id="title"
+                       [(ngModel)]="profil.title"
+                       required
+                       minlength="8"
+                       class="validate"
+                />
+                <label for="title" class="active"  data-error="Entrez votre post actuel" data-success="right">Title</label>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

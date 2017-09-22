@@ -1,18 +1,20 @@
-import { NgModule }         from '@angular/core';
-import { CommonModule }     from '@angular/common';
+import { NgModule }                         from '@angular/core';
+import { CommonModule }                     from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CardProfilModule }                 from './../../modules/card-profil/card-profil.module'
 
-import {routing}            from './dashboard.routing';
+import {routing}                            from './dashboard.routing';
 
+import { DashboardComponent }               from './dashboard.component';
 
-import { DashboardComponent } from './dashboard.component';
-
-import { CardProfilModule } from './../../module/card-profil/card-profil.module'
 
 @NgModule({
   imports: [
     CommonModule,
     routing,
-    CardProfilModule
+    CardProfilModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
       DashboardComponent,

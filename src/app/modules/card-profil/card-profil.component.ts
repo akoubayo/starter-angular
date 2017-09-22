@@ -7,9 +7,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CardProfilComponent implements OnInit {
 
-  constructor() { }
+    @Input() profil:any = {};
 
-  ngOnInit() {
-  }
+    constructor() {
+        this.profil.first_name = "";
+        this.profil.last_name  = "";
+        this.profil.title      = "";
+        this.profil.bullet     = 0;
+    }
+
+    ngOnInit() {
+    }
 
 }

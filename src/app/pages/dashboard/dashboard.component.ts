@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+    public profil:any = {
+        first_name:   "Damien",
+        last_name:    "Altman",
+        title:        "Dévellopeur chez Tilkee",
+        bullet:        2
+    }
 
-  ngOnInit() {
-  }
+    constructor() { }
+
+    ngOnInit() {
+    }
 
 }
