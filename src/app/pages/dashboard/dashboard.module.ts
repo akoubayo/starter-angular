@@ -6,6 +6,7 @@ import { CardProfilModule }                 from './../../modules/card-profil/ca
 import {routing}                            from './dashboard.routing';
 
 import { DashboardComponent }               from './dashboard.component';
+import { UpdateComponent } from './update/update.component';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { DashboardComponent }               from './dashboard.component';
   ],
   declarations: [
       DashboardComponent,
-
+      UpdateComponent,
   ]
 })
 export class DashboardModule { }

@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { User }              from './../../services/user/user'
 import { UserService }       from './../../services/user/user.service';
 
+import { Subscription }      from 'rxjs/Subscription';
+
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -18,6 +21,9 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit() {
         this.profil = this.user_service.getUser();
+        this.user_service.getObservableUser().subscribe(res => {
+            this.profil = res;
+        })
     }
 
     public setUser = (_profil:any) => {
